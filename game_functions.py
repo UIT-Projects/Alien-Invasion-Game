@@ -8,7 +8,7 @@ from alien import Alien
 
 
 def check_events(ai_settings, screen, stats, sb, menu, ship, aliens, bullets):
-    """ Respond to key presses and mouse events. """
+    """ Respond to key presses and mouse events """
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -24,7 +24,7 @@ def check_events(ai_settings, screen, stats, sb, menu, ship, aliens, bullets):
 
 
 def check_keydown_events(event, ai_settings, screen, stats, sb, menu, ship, bullets, aliens):
-    """ Responds to keypresses. """
+    """ Responds to keypresses """
     if event.key == pygame.K_p:
         if not stats.game_active:
             start_new_game(ai_settings, screen, stats,
@@ -53,7 +53,7 @@ def check_keydown_events(event, ai_settings, screen, stats, sb, menu, ship, bull
 
 
 def check_keyup_events(event, ship):
-    """ Reponds to key releases. """
+    """ Reponds to key releases """
     if event.key == pygame.K_RIGHT:
         ship.moving_right = False
     elif event.key == pygame.K_LEFT:
@@ -62,7 +62,7 @@ def check_keyup_events(event, ship):
 
 def check_menu(ai_settings, screen, stats, sb, menu, ship, aliens,
                bullets, mouse_x, mouse_y):
-    """Start a new game when the player clicks Play."""
+    """Start a new game when the player clicks Play"""
 
     button_clicked = menu.rect.collidepoint(mouse_x, mouse_y)
     if button_clicked and not stats.game_active:
@@ -70,7 +70,7 @@ def check_menu(ai_settings, screen, stats, sb, menu, ship, aliens,
 
 
 def start_new_game(ai_settings, screen, stats, sb, ship, bullets, aliens):
-    """ Reset game and start new game. """
+    """ Reset game and start new game """
 
     play_bg_music(ai_settings)
     # Reset game speed metrics
@@ -90,31 +90,31 @@ def start_new_game(ai_settings, screen, stats, sb, ship, bullets, aliens):
 
 
 def play_bg_music(ai_settings):
-    """ Play background music when game is running. """
+    """ Play background music when game is running """
     pygame.mixer.music.set_volume(ai_settings.med_volume)
     bg_music = pygame.mixer.music.load('./resources/sound/bg_music.mp3')
     pygame.mixer.music.play(-1)
 
 
 def pause_game(stats, menu):
-    """ Pauses the game. """
+    """ Pauses the game """
     stats.game_paused = True
     pygame.mixer.music.pause()
 
 
 def unpause_game(stats, menu):
-    """ Pauses the game. """
+    """ Pauses the game """
     stats.game_paused = False
     pygame.mixer.music.unpause()
 
 
 def stop_bg_music():
-    """ Stop background music when game ends. """
+    """ Stop background music when game ends """
     pygame.mixer.music.stop()
 
 
 def save_and_quit(stats):
-    """ Save high score and the quit game. """
+    """ Save high score and the quit game """
     game_data = './resources/data/high_score.txt'
 
     with open(game_data, 'w') as f_object:
@@ -125,7 +125,7 @@ def save_and_quit(stats):
 
 
 def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, menu):
-    """ Uptades images on a screen and flips to the new screen. """
+    """ Uptades images on a screen and flips to the new screen """
     screen.fill(ai_settings.bg_color)
     ship.blitme()
     aliens.draw(screen)
@@ -148,7 +148,7 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, menu):
 
 
 def create_alien(ai_settings, screen, aliens, alien_number, row_number):
-    """Create an alien and place it in the row."""
+    """Create an alien and place it in the row"""
     alien = Alien(ai_settings, screen)
     alien_width = alien.rect.width
     alien.x = alien_width + 2 * alien_width * alien_number
@@ -158,7 +158,7 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number):
 
 
 def create_fleet(ai_settings, screen, ship, aliens):
-    """Create a full fleet of aliens."""
+    """Create a full fleet of aliens"""
     # Create an alien and find the number of aliens in a row
     alien = Alien(ai_settings, screen)
     number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)

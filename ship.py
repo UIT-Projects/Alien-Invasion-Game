@@ -5,7 +5,7 @@ from pygame.sprite import Sprite
 class Ship(Sprite):
 
     def __init__(self, ai_settings, screen):
-        """ Initialize the ship and its starting position. """
+        """ Initialize the ship and its starting position """
         super().__init__()
 
         self.screen = screen

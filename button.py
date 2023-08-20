@@ -4,7 +4,7 @@ import pygame.font
 class Button():
 
     def __init__(self, ai_settings, screen, stats):
-        """Initialize button attributes."""
+        """Initialize button attributes"""
 
         self.screen = screen
         self.screen_rect = screen.get_rect()
@@ -22,7 +22,7 @@ class Button():
         self.prep_msg(stats)
 
     def prep_text(self, stats):
-        """ Prepare the text for the menu button based on state of game. """
+        """ Prepare the text for the menu button based on state of game """
         if not stats.game_active and not stats.game_paused and not stats.game_ended:
             self.msg = 'Play!'
         elif stats.game_active and stats.game_paused:
@@ -31,7 +31,7 @@ class Button():
             self.msg = 'Try Again!'
 
     def prep_msg(self, stats):
-        """ Turn msg into a rendered image and center text on the button. """
+        """ Turn msg into a rendered image and center text on the button """
         self.prep_text(stats)
         self.msg_image = self.font.render(self.msg, True, self.text_color,
                                           self.button_color)

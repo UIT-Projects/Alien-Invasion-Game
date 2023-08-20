@@ -4,10 +4,10 @@ from random import randint
 
 
 class Alien(Sprite):
-    """A class to represent a single alien in the fleet."""
+    """A class to represent a single alien in the fleet"""
 
     def __init__(self, ai_settings, screen):
-        """ Initialize the alien and set its starting position. """
+        """ Initialize the alien and set its starting position"""
         super().__init__()
         self.screen = screen
         self.ai_settings = ai_settings
@@ -21,13 +21,13 @@ class Alien(Sprite):
         self.x = float(self.rect.x)
 
     def update(self):
-        """Move the alien right or left."""
+        """Move the alien right or left"""
         self.x += (self.ai_settings.alien_speed_factor *
                    self.ai_settings.fleet_direction)
         self.rect.x = self.x
 
     def check_edges(self):
-        """Return True if alien is at edge of screen."""
+        """Return True if alien is at edge of screen"""
         screen_rect = self.screen.get_rect()
         if self.rect.right >= screen_rect.right:
             return True
@@ -36,7 +36,7 @@ class Alien(Sprite):
             return True
 
     def get_color(self):
-        """ Set color random color for alien. """
+        """ Set color random color for alien"""
         colors = ['./resources/images/alien_blue.bmp',
                   './resources/images/alien_red.bmp', './resources/images/alien_green.bmp']
         random_index = randint(0, len(colors)-1)
@@ -45,7 +45,7 @@ class Alien(Sprite):
         return alien_color
 
     def set_alien_points(self, color):
-        """ Determines score of alien based on alien color. """
+        """ Determines score of alien based on alien color"""
         if color == './resources/images/alien_green.bmp':
             self.points = 100
         elif color == './resources/images/alien_blue.bmp':
@@ -54,5 +54,5 @@ class Alien(Sprite):
             self.points = 200
 
     def blitme(self):
-        """Draw the alien at its current location."""
+        """Draw the alien at its current location"""
         self.screen.blit(self.image, self.rect)

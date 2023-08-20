@@ -2,10 +2,10 @@ import os
 
 
 class GameStats():
-    """Track statistics for Alien Invasion."""
+    """Track statistics for Alien Invasion"""
 
     def __init__(self, ai_settings):
-        """Initialize statistics."""
+        """Initialize statistics"""
         self.ai_settings = ai_settings
         self.game_active = False
         self.game_paused = False

@@ -5,7 +5,7 @@ from button import Button
 class Menu():
 
     def __init__(self, ai_settings, screen, stats):
-        """ Initialize menu attributes. """
+        """ Initialize menu attributes """
         self.screen = screen
         self.screen_rect = screen.get_rect()
 
